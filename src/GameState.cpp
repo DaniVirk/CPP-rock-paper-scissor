@@ -1,4 +1,4 @@
-﻿#include "GameState.h"
+﻿#include "Headers/GameState.h"
 
 bool GameState::GetStarted() {
     return started;

@@ -2,8 +2,8 @@
 #define GAMEENGINE_H
 #include <string>
 
-#include "GameEnum.cpp"
-#include "GameDecision.cpp"
+#include "../Enum/GameEnum.cpp"
+#include "../Enum/GameDecision.cpp"
 
 
 class GameEngine {

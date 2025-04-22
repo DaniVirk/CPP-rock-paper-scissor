@@ -1,7 +1,7 @@
-﻿#include "GameEngine.h"
+﻿#include "Headers/GameEngine.h"
 #include <iostream>
 #include <random>
-#include "GameState.h"
+#include "Headers/GameState.h"
 #include <limits>
 #include <windows.h>
 
