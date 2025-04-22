@@ -1,6 +1,10 @@
 ﻿#include <iostream>
 
+#include "src/GameEngine.h"
+using std::cout;
+
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    GameEngine gameEngine;
+    gameEngine.Start();
     return 0;
 }
