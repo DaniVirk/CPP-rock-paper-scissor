@@ -83,26 +83,24 @@ GameEnum GameEngine::GetInput() {
 
 int GameEngine::RandomNumberGenerator() {
     std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> distrib(1, 3000);
+    std::uniform_int_distribution distrib(1, 3000);
     return distrib(gen);
 }
+
+//Init once
+std::mt19937 GameEngine::gen(std::random_device{}());
 
 GameEnum GameEngine::GetRPSValueFromRng(const int value) {
     if (value <= 1000) {
         return GameEnum::ROCK;
     }
-
     if (value < 2000) {
         return GameEnum::PAPER;
     }
-
     if (value <= 3000) {
         return GameEnum::SCISSOR;
     }
-
-    //Default
-    return GameEnum::ROCK;
+    throw std::out_of_range("Random value out of expected range");
 }
 
 GameDecision GameEngine::GetGameDecision(const GameEnum user, const GameEnum opponent) {
