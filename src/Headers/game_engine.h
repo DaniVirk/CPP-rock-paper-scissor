@@ -1,5 +1,5 @@
-﻿#ifndef SRC_GAMEENGINE_H
-#define SRC_GAMEENGINE_H
+﻿#ifndef CPP_ROCK_PAPER_SCISSOR_SRC_GAMEENGINE_H_
+#define CPP_ROCK_PAPER_SCISSOR_SRC_GAMEENGINE_H_
 #include <random>
 #include <string>
 #include "../Enum/game_enum.cpp"
@@ -8,18 +8,15 @@
 
 class game_engine {
     static std::mt19937 gen;
-    game_enum GetInput();
-    game_enum GetRPSValueFromRng(int value);
-    game_decision GetGameDecision(game_enum user, game_enum opponent);
-    bool ShouldGameContinue();
-    std::string ToString(game_enum choice);
+    game_enum get_input();
+    game_enum get_rps_value_from_rng(int value);
+    game_decision get_game_decision(game_enum user, game_enum opponent);
+    bool should_game_continue();
+    std::string to_string(game_enum choice);
 
 public:
-    void Start();
-
-    static int RandomNumberGenerator();
+    void start();
+    static int random_number_generator();
 };
 
-
-
-#endif //SRC_GAMEENGINE_H
+#endif //CPP_ROCK_PAPER_SCISSOR_SRC_GAMEENGINE_H_

@@ -1,5 +1,5 @@
-﻿#ifndef SRC_GAMESTATE_H
-#define SRC_GAMESTATE_H
+﻿#ifndef CPP_ROCK_PAPER_SCISSOR_SRC_GAMESTATE_H_
+#define CPP_ROCK_PAPER_SCISSOR_SRC_GAMESTATE_H_
 
 
 
@@ -9,18 +9,18 @@ class game_state {
     int _computer_score = 0;
 
     public:
-    bool GetStarted();
-    void SetStarted(bool started);
+    bool get_started();
+    void set_started(bool started);
 
-    int GetPlayerScore();
-    void SetPlayerScore(int score);
-    void AddPlayerScore();
+    int get_player_score();
+    void set_player_score(int score);
+    void add_player_score();
 
-    int GetComputerScore();
-    void SetComputerScore(int score);
-    void AddComputerScore();
+    int get_computer_score();
+    void set_computer_score(int score);
+    void add_computer_score();
 };
 
 
 
-#endif //SRC_GAMESTATE_H
+#endif //CPP_ROCK_PAPER_SCISSOR_SRC_GAMESTATE_H_

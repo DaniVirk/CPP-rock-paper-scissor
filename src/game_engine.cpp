@@ -9,32 +9,32 @@ using std::cout;
 using std::endl;
 using std::cin;
 
-void game_engine::Start() {
+void game_engine::start() {
     cout << "Welcome to rock paper scissor - Made by Danial" << endl;
     const HANDLE console_handle = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(console_handle, 15);
     game_state game_state;
-    game_state.SetStarted(true);
+    game_state.set_started(true);
 
-    while (game_state.GetStarted()) {
+    while (game_state.get_started()) {
         cout << "Chose one of the following: 0. ROCK - 1. PAPER - 2. SCISSOR" << endl;
-        const game_enum user_choice = GetInput();
-        const auto rng_number = RandomNumberGenerator();
-        const game_enum game_choice = GetRPSValueFromRng(rng_number);
-        const auto decision = GetGameDecision(user_choice, game_choice);
+        const game_enum user_choice = get_input();
+        const auto rng_number = random_number_generator();
+        const game_enum game_choice = get_rps_value_from_rng(rng_number);
+        const auto decision = get_game_decision(user_choice, game_choice);
 
         if (decision == game_decision::LOSE) {
-            game_state.AddComputerScore();
+            game_state.add_computer_score();
             SetConsoleTextAttribute(console_handle, 4);
-            cout << "You lost | Your score: " << game_state.GetPlayerScore() << endl;
-            cout << "Computer's score: " << game_state.GetComputerScore() << endl;
+            cout << "You lost | Your score: " << game_state.get_player_score() << endl;
+            cout << "Computer's score: " << game_state.get_computer_score() << endl;
         }
 
         if (decision == game_decision::WIN) {
-            game_state.AddPlayerScore();
+            game_state.add_player_score();
             SetConsoleTextAttribute(console_handle, 10);
-            cout << "You win | Your score: " << game_state.GetPlayerScore() << endl;
-            cout << "Computer's score: " << game_state.GetComputerScore() << endl;
+            cout << "You win | Your score: " << game_state.get_player_score() << endl;
+            cout << "Computer's score: " << game_state.get_computer_score() << endl;
         }
 
         if (decision == game_decision::DRAW) {
@@ -43,15 +43,15 @@ void game_engine::Start() {
         }
 
         SetConsoleTextAttribute(console_handle, 15);
-        game_state.SetStarted(ShouldGameContinue());
+        game_state.set_started(should_game_continue());
     }
 
-    cout << "You scored: " << game_state.GetPlayerScore() << endl;
-    cout << "Computer scored: " << game_state.GetComputerScore() << endl;
+    cout << "You scored: " << game_state.get_player_score() << endl;
+    cout << "Computer scored: " << game_state.get_computer_score() << endl;
     cout << "Goodbye!!" << endl;
 }
 
-game_enum game_engine::GetInput() {
+game_enum game_engine::get_input() {
     int input_int;
     while (true) {
         cin >> input_int;
@@ -80,7 +80,7 @@ game_enum game_engine::GetInput() {
     }
 }
 
-int game_engine::RandomNumberGenerator() {
+int game_engine::random_number_generator() {
     std::random_device rd;
     std::uniform_int_distribution distrib(1, 3000);
     return distrib(gen);
@@ -89,7 +89,7 @@ int game_engine::RandomNumberGenerator() {
 //Init once
 std::mt19937 game_engine::gen(std::random_device{}());
 
-game_enum game_engine::GetRPSValueFromRng(const int value) {
+game_enum game_engine::get_rps_value_from_rng(const int value) {
     if (value <= 1000) {
         return game_enum::ROCK;
     }
@@ -102,9 +102,9 @@ game_enum game_engine::GetRPSValueFromRng(const int value) {
     throw std::out_of_range("Random value out of expected range");
 }
 
-game_decision game_engine::GetGameDecision(const game_enum user, const game_enum opponent) {
-    cout << "You chose: " << ToString(user) << endl;
-    cout << "Computer chose: " << ToString(opponent) << endl;
+game_decision game_engine::get_game_decision(const game_enum user, const game_enum opponent) {
+    cout << "You chose: " << to_string(user) << endl;
+    cout << "Computer chose: " << to_string(opponent) << endl;
 
     //ROCK
     if (user == game_enum::ROCK) {
@@ -145,7 +145,7 @@ game_decision game_engine::GetGameDecision(const game_enum user, const game_enum
     return game_decision::LOSE;
 }
 
-bool game_engine::ShouldGameContinue() {
+bool game_engine::should_game_continue() {
     std::string input;
     while (true) {
         cout << "Do you want to continue? [y/n] ";
@@ -164,7 +164,7 @@ bool game_engine::ShouldGameContinue() {
     }
 }
 
-std::string game_engine::ToString(const game_enum choice) {
+std::string game_engine::to_string(const game_enum choice) {
     switch (choice) {
         case game_enum::ROCK: return "Rock";
         case game_enum::PAPER: return "Paper";

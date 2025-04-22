@@ -5,6 +5,6 @@ using std::cout;
 
 int main() {
     game_engine gameEngine;
-    gameEngine.Start();
+    gameEngine.start();
     return 0;
 }
