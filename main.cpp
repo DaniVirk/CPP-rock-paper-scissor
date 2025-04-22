@@ -1,10 +1,10 @@
 ﻿#include <iostream>
 
-#include "src/Headers/GameEngine.h"
+#include "src/Headers/game_engine.h"
 using std::cout;
 
 int main() {
-    GameEngine gameEngine;
+    game_engine gameEngine;
     gameEngine.Start();
     return 0;
 }

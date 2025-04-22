@@ -1,4 +1,4 @@
-﻿enum class GameDecision {
+﻿enum class game_decision {
     WIN,
     LOSE,
     DRAW,

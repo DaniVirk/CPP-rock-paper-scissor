@@ -1,12 +1,12 @@
-﻿#ifndef GAMESTATE_H
-#define GAMESTATE_H
+﻿#ifndef SRC_GAMESTATE_H
+#define SRC_GAMESTATE_H
 
 
 
-class GameState {
-    bool started = false;
-    int playerScore = 0;
-    int computerScore = 0;
+class game_state {
+    bool _started = false;
+    int _player_score = 0;
+    int _computer_score = 0;
 
     public:
     bool GetStarted();
@@ -23,4 +23,4 @@ class GameState {
 
 
 
-#endif //GAMESTATE_H
+#endif //SRC_GAMESTATE_H
