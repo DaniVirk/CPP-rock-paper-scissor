@@ -1,18 +1,21 @@
-﻿//
-// Created by dania on 22/04/2025.
-//
-
-#ifndef GAMEENGINE_H
+﻿#ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 #include <string>
 
+#include "GameEnum.cpp"
+#include "GameDecision.cpp"
+
 
 class GameEngine {
-    private:
-    std::string GetInput();
+    GameEnum GetInput();
+    GameEnum GetRPSValueFromRng(int value);
+    GameDecision GetGameDecision(GameEnum user, GameEnum opponent);
+    bool ShouldGameContinue();
+    std::string ToString(GameEnum choice);
 
-    public:
+public:
     void Start();
+    int RandomNumberGenerator();
 };
 
 

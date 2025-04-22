@@ -1,4 +1,4 @@
-﻿enum GameEnum {
+﻿enum class GameEnum {
     ROCK,
     PAPER,
     SCISSOR
