@@ -24,13 +24,17 @@ void GameEngine::Start() {
         const auto decision = GetGameDecision(userChoice, gameChoice);
 
         if (decision == GameDecision::LOSE) {
+            gameState.AddComputerScore();
             SetConsoleTextAttribute(consoleHandle, 4);
-            cout << "You lost" << endl;
+            cout << "You lost | Your score: " << gameState.GetPlayerScore() << endl;
+            cout << "Computer's score: " << gameState.GetComputerScore() << endl;
         }
 
         if (decision == GameDecision::WIN) {
+            gameState.AddPlayerScore();
             SetConsoleTextAttribute(consoleHandle, 10);
-            cout << "You win" << endl;
+            cout << "You win | Your score: " << gameState.GetPlayerScore() << endl;
+            cout << "Computer's score: " << gameState.GetComputerScore() << endl;
         }
 
         if (decision == GameDecision::DRAW) {
@@ -42,6 +46,8 @@ void GameEngine::Start() {
         gameState.SetStarted(ShouldGameContinue());
     }
 
+    cout << "You scored: " << gameState.GetPlayerScore() << endl;
+    cout << "Computer scored: " << gameState.GetComputerScore() << endl;
     cout << "Goodbye!!" << endl;
 }
 
